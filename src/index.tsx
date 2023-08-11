@@ -1,19 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import itIT from 'antd/es/locale/it_IT';
-
-import it from 'date-fns/locale/it';
-import { setDefaultOptions } from 'date-fns';
-
 import reportWebVitals from './reportWebVitals';
 
 import App from './App';
-
-setDefaultOptions({ locale: it });
-
-itIT!.Calendar!.lang.locale! = 'it' as any;
-itIT!.DatePicker!.lang.locale! = 'it' as any;
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
