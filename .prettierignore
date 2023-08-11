@@ -1,0 +1,10 @@
+# Ignore artifacts:
+dist
+build
+coverage
+
+# Ignore all HTML files:
+*.html
+
+# Others
+src/generated/graphql.tsx

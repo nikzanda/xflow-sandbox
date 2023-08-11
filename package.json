@@ -1,6 +1,6 @@
 {
-  "name": "stackblitz-starters-u9dmay",
-  "version": "0.0.0",
+  "name": "mes-react-frontend",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@ant-design/charts": "^1.4.2",
@@ -52,8 +52,15 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "GENERATE_SOURCEMAP=false react-scripts build",
+    "build:artigiani": "if [ $(git rev-parse --abbrev-ref HEAD) = \"main\" ]; then env-cmd -f .env.artigiani yarn build; else echo \"DOVRESTI BUILDARE DENTRO MAIN\"; fi",
+    "build:staging": "if [ $(git rev-parse --abbrev-ref HEAD) = \"develop\" ]; then env-cmd -f .env.staging yarn build; else echo \"DOVRESTI BUILDARE DENTRO DEVELOP\"; fi",
+    "build:michielon": "if [ $(git rev-parse --abbrev-ref HEAD) = \"main\" ]; then env-cmd -f .env.michielon yarn build; else echo \"DOVRESTI BUILDARE DENTRO MAIN\"; fi",
+    "build:atroos": "env-cmd -f .env.development yarn build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "graphql:codegen": "graphql-codegen --config codegen.yml",
+    "prepare": "husky install",
+    "prettify": "yarn prettier --write .",
     "lint": "eslint --fix --ext .ts,.tsx ."
   },
   "browserslist": {

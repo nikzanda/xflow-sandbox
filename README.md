@@ -1,3 +1,4 @@
-# xflow-sandbox
+# deploy staging artigiani
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/stackblitz-starters-u9dmay)
+- cambiare config.js
+- yarn build
