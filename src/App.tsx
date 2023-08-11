@@ -5,6 +5,7 @@ import './style.css';
 export default function App() {
   return (
     <div>
+      ciao
       <XflowTest meta={{ flowId: 'xflow' }} />
     </div>
   );

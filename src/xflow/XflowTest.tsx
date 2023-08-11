@@ -1,8 +1,8 @@
 // @ts-nocheck
-import React from 'react'
+import React from 'react';
 /** app 核心组件 */
-import { XFlow, XFlowCanvas, KeyBindings } from '@antv/xflow'
-import type { IApplication, IAppLoad } from '@antv/xflow'
+import { XFlow, XFlowCanvas, KeyBindings } from '@antv/xflow';
+import type { IApplication, IAppLoad } from '@antv/xflow';
 /** 交互组件 */
 import {
   /** 触发Command的交互组件 */
@@ -15,65 +15,65 @@ import {
   CanvasSnapline,
   CanvasNodePortTooltip,
   DagGraphExtension,
-} from '@antv/xflow'
+} from '@antv/xflow';
 
 /** app 组件配置  */
 /** 配置画布 */
-import { useGraphHookConfig } from './config-graph'
+import { useGraphHookConfig } from './config-graph';
 /** 配置Command */
-import { useCmdConfig, initGraphCmds } from './config-cmd'
+import { useCmdConfig, initGraphCmds } from './config-cmd';
 /** 配置Model */
-import { useModelServiceConfig } from './config-model-service'
+import { useModelServiceConfig } from './config-model-service';
 /** 配置Menu */
-import { useMenuConfig } from './config-menu'
+import { useMenuConfig } from './config-menu';
 /** 配置Toolbar */
-import { useToolbarConfig } from './config-toolbar'
+import { useToolbarConfig } from './config-toolbar';
 /** 配置快捷键 */
-import { useKeybindingConfig } from './config-keybinding'
+import { useKeybindingConfig } from './config-keybinding';
 /** 配置Dnd组件面板 */
-import * as dndPanelConfig from './config-dnd-panel'
+import * as dndPanelConfig from './config-dnd-panel';
 /** 配置JsonConfigForm */
-import { formSchemaService, formValueUpdateService } from './config-form'
-import { controlMapService } from './form-controls/index'
+import { formSchemaService, formValueUpdateService } from './config-form';
+import { controlMapService } from './form-controls/index';
 
-import './index.less'
-import '@antv/xflow/dist/index.css'
+import './index.less';
+import '@antv/xflow/dist/index.css';
 
 export interface IProps {
-  meta: { flowId: string }
+  meta: { flowId: string };
 }
 
-export const XflowTest: React.FC<IProps> = props => {
-  const { meta } = props
-  const graphHooksConfig = useGraphHookConfig(props)
-  const toolbarConfig = useToolbarConfig()
-  const menuConfig = useMenuConfig()
-  const cmdConfig = useCmdConfig()
-  const modelServiceConfig = useModelServiceConfig()
-  const keybindingConfig = useKeybindingConfig()
+const XflowTest: React.FC<IProps> = (props) => {
+  const { meta } = props;
+  const graphHooksConfig = useGraphHookConfig(props);
+  const toolbarConfig = useToolbarConfig();
+  const menuConfig = useMenuConfig();
+  const cmdConfig = useCmdConfig();
+  const modelServiceConfig = useModelServiceConfig();
+  const keybindingConfig = useKeybindingConfig();
 
   const cache = React.useMemo<{ app: IApplication } | null>(
     () => ({
       app: null,
     }),
-    [],
-  )
+    []
+  );
   /**
    * @param app 当前XFlow工作空间
    * @param extensionRegistry 当前XFlow配置项
    */
 
-  const onLoad: IAppLoad = async app => {
-    cache.app = app
-    initGraphCmds(cache.app)
-  }
+  const onLoad: IAppLoad = async (app) => {
+    cache.app = app;
+    initGraphCmds(cache.app);
+  };
 
   /** 父组件meta属性更新时,执行initGraphCmds */
   React.useEffect(() => {
     if (cache.app) {
-      initGraphCmds(cache.app)
+      initGraphCmds(cache.app);
     }
-  }, [cache.app, meta])
+  }, [cache.app, meta]);
 
   return (
     <XFlow
@@ -116,11 +116,7 @@ export const XflowTest: React.FC<IProps> = props => {
       />
       <KeyBindings config={keybindingConfig} />
     </XFlow>
-  )
-}
+  );
+};
 
-export default XflowTest
-
-XflowTest.defaultProps = {
-  meta: { flowId: 'test-meta-flow-id' },
-}
+export default XflowTest;

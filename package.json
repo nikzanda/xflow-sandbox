@@ -3,10 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "@ant-design/icons": "^4.6.0",
+    "@antv/xflow": "^2.0.0",
     "@types/react": "18.2.20",
-    "@types/react-dom": "18.2.7"
+    "@types/react-dom": "18.2.7",
+    "antd": "^5.8.3",
+    "lodash": "^4.17.20",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
