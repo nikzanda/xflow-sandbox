@@ -1,17 +1,15 @@
 import React, { FC } from 'react';
 
 import './style.css';
-import { App as AntApp, Space } from 'antd';
+import { App as AntApp, Layout } from 'antd';
 import XflowTest from './xflow/XflowTest';
 
 const App: FC = () => (
-  // <Space style={{ width: '100%', backgroundColor: 'green' }}>
   <AntApp>
-    <div style={{ backgroundColor: 'green' }}>
+    <Layout style={{ height: '100vh', padding: '15px 15px 15px 15px' }}>
       <XflowTest meta={{ flowId: 'xflow-test' }} />
-    </div>
+    </Layout>
   </AntApp>
-  // </Space>
 );
 
 export default App;

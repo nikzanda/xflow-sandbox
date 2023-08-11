@@ -20,286 +20,284 @@ export namespace MockApi {
   };
   /** 加载图数据的api */
   export const loadGraphData = async (meta: NsGraph.IGraphMeta) => {
-    const nodes: NsGraph.INodeConfig[] = [
-      {
-        ...NODE_COMMON_PROPS,
-        id: 'node1',
-        label: '算法节点-1',
-        ports: [
-          {
-            id: 'node1-input-1',
-            type: NsGraph.AnchorType.INPUT,
-            group: NsGraph.AnchorGroup.TOP,
-            tooltip: '输入桩',
-          },
-          {
-            id: 'node1-output-1',
-            type: NsGraph.AnchorType.OUTPUT,
-            group: NsGraph.AnchorGroup.BOTTOM,
-            tooltip: '输出桩',
-          },
-        ] as NsGraph.INodeAnchor[],
-      },
-      {
-        ...NODE_COMMON_PROPS,
-        id: 'node2',
-        label: '算法节点-2',
-        ports: [
-          {
-            id: 'node2-input-1',
-            type: NsGraph.AnchorType.INPUT,
-            group: NsGraph.AnchorGroup.TOP,
-            tooltip: '输入桩',
-            connected: true,
-          },
-          {
-            id: 'node2-output-1',
-            type: NsGraph.AnchorType.OUTPUT,
-            group: NsGraph.AnchorGroup.BOTTOM,
-            tooltip: '输出桩',
-          },
-        ] as NsGraph.INodeAnchor[],
-      },
-      {
-        ...NODE_COMMON_PROPS,
-        id: 'node3',
-        label: '算法节点-3',
-        ports: [
-          {
-            id: 'node3-input-1',
-            type: NsGraph.AnchorType.INPUT,
-            group: NsGraph.AnchorGroup.TOP,
-            tooltip: '输入桩',
-            connected: true,
-          },
-          {
-            id: 'node3-output-1',
-            type: NsGraph.AnchorType.OUTPUT,
-            group: NsGraph.AnchorGroup.BOTTOM,
-            tooltip: '输出桩',
-          },
-        ] as NsGraph.INodeAnchor[],
-      },
-      {
-        ...NODE_COMMON_PROPS,
-        id: 'node4',
-        label: '算法节点-4',
-        ports: [
-          {
-            id: 'node4-input-1',
-            type: NsGraph.AnchorType.INPUT,
-            group: NsGraph.AnchorGroup.TOP,
-            tooltip: '输入桩',
-            connected: true,
-          },
-          {
-            id: 'node4-output-1',
-            type: NsGraph.AnchorType.OUTPUT,
-            group: NsGraph.AnchorGroup.BOTTOM,
-            tooltip: '输出桩',
-          },
-        ] as NsGraph.INodeAnchor[],
-      },
-    ];
-    const edges: NsGraph.IEdgeConfig[] = [
-      {
-        id: uuidv4(),
-        source: 'node1',
-        target: 'node2',
-        sourcePortId: 'node1-output-1',
-        targetPortId: 'node2-input-1',
-      },
-      {
-        id: uuidv4(),
-        source: 'node1',
-        target: 'node3',
-        sourcePortId: 'node1-output-1',
-        targetPortId: 'node3-input-1',
-      },
-      {
-        id: uuidv4(),
-        source: 'node1',
-        target: 'node4',
-        sourcePortId: 'node1-output-1',
-        targetPortId: 'node4-input-1',
-      },
-    ];
-    return { nodes, edges };
-
-    //   return {
-    //     "nodes": [
-    //         {
-    //             "id": "node1",
-    //             "renderKey": "DND_NDOE",
-    //             "width": 180,
-    //             "height": 36,
-    //             "label": "算法节点-1",
-    //             "ports": [
-    //                 {
-    //                     "id": "node1-input-1",
-    //                     "type": "input",
-    //                     "group": "top",
-    //                     "tooltip": "输入桩"
-    //                 },
-    //                 {
-    //                     "id": "node1-output-1",
-    //                     "type": "output",
-    //                     "group": "bottom",
-    //                     "tooltip": "输出桩"
-    //                 }
-    //             ],
-    //             "x": 300,
-    //             "y": 50,
-    //             "_order": 0,
-    //             "group": "2fd8bb17-b3b9-4753-870b-0764892cc027",
-    //             "isCollapsed": false
-    //         },
-    //         {
-    //           "id": "2fd8bb17-b3b9-4753-870b-0764892cc027",
-    //           "renderKey": "GROUP_NODE_RENDER_ID",
-    //           "width": 204,
-    //           "height": 100,
-    //           "groupChildren": [
-    //               "node1"
-    //           ],
-    //           "groupCollapsedSize": {
-    //               "width": 200,
-    //               "height": 40
-    //           },
-    //           "label": "新建群组",
-    //           "ports": [],
-    //           "groupChildrenSize": {
-    //               "width": 204,
-    //               "height": 100
-    //           },
-    //           "x": 288,
-    //           "y": -2,
-    //           "isGroup": true
+    // const nodes: NsGraph.INodeConfig[] = [
+    //   {
+    //     ...NODE_COMMON_PROPS,
+    //     id: 'node1',
+    //     label: '算法节点-1',
+    //     ports: [
+    //       {
+    //         id: 'node1-input-1',
+    //         type: NsGraph.AnchorType.INPUT,
+    //         group: NsGraph.AnchorGroup.TOP,
+    //         tooltip: '输入桩',
     //       },
-    //         {
-    //             "id": "node2",
-    //             "renderKey": "DND_NDOE",
-    //             "width": 180,
-    //             "height": 36,
-    //             "label": "算法节点-2",
-    //             "ports": [
-    //                 {
-    //                     "id": "node2-input-1",
-    //                     "type": "input",
-    //                     "group": "top",
-    //                     "tooltip": "输入桩",
-    //                     "connected": true
-    //                 },
-    //                 {
-    //                     "id": "node2-output-1",
-    //                     "type": "output",
-    //                     "group": "bottom",
-    //                     "tooltip": "输出桩"
-    //                 }
-    //             ],
-    //             "x": 80,
-    //             "y": 180,
-    //             "_order": 0
-    //         },
-    //         {
-    //             "id": "node3",
-    //             "renderKey": "DND_NDOE",
-    //             "width": 180,
-    //             "height": 36,
-    //             "label": "算法节点-3",
-    //             "ports": [
-    //                 {
-    //                     "id": "node3-input-1",
-    //                     "type": "input",
-    //                     "group": "top",
-    //                     "tooltip": "输入桩",
-    //                     "connected": true
-    //                 },
-    //                 {
-    //                     "id": "node3-output-1",
-    //                     "type": "output",
-    //                     "group": "bottom",
-    //                     "tooltip": "输出桩"
-    //                 }
-    //             ],
-    //             "x": 300,
-    //             "y": 180,
-    //             "_order": 1
-    //         },
-    //         {
-    //             "id": "node4",
-    //             "renderKey": "DND_NDOE",
-    //             "width": 180,
-    //             "height": 36,
-    //             "label": "算法节点-4",
-    //             "ports": [
-    //                 {
-    //                     "id": "node4-input-1",
-    //                     "type": "input",
-    //                     "group": "top",
-    //                     "tooltip": "输入桩",
-    //                     "connected": true
-    //                 },
-    //                 {
-    //                     "id": "node4-output-1",
-    //                     "type": "output",
-    //                     "group": "bottom",
-    //                     "tooltip": "输出桩"
-    //                 }
-    //             ],
-    //             "x": 520,
-    //             "y": 180,
-    //             "_order": 2
-    //         },
-    //     ],
-    //     "edges": [
-    //         {
-    //             "id": "4520d302-5b36-4f55-abdd-390947def70f",
-    //             "source": "node1",
-    //             "target": "node2",
-    //             "sourcePortId": "node1-output-1",
-    //             "targetPortId": "node2-input-1",
-    //             "connector": {
-    //                 "name": "rounded"
-    //             },
-    //             "router": {
-    //                 "name": "manhattan"
-    //             },
-    //             "sourcePort": "node1-output-1",
-    //             "targetPort": "node2-input-1"
-    //         },
-    //         {
-    //             "id": "f44dc92b-0e32-4a20-8b89-bec49836bcfa",
-    //             "source": "node1",
-    //             "target": "node3",
-    //             "sourcePortId": "node1-output-1",
-    //             "targetPortId": "node3-input-1",
-    //             "connector": {
-    //                 "name": "rounded"
-    //             },
-    //             "router": {
-    //                 "name": "manhattan"
-    //             },
-    //             "sourcePort": "node1-output-1",
-    //             "targetPort": "node3-input-1"
-    //         },
-    //         {
-    //             "id": "de1caa6c-b739-4392-bf77-806515a5a49f",
-    //             "source": "node1",
-    //             "target": "node4",
-    //             "sourcePortId": "node1-output-1",
-    //             "targetPortId": "node4-input-1",
-    //             "connector": {
-    //                 "name": "rounded"
-    //             },
-    //             "router": {
-    //                 "name": "manhattan"
-    //             },
-    //             "sourcePort": "node1-output-1",
-    //             "targetPort": "node4-input-1"
-    //         }
-    //     ]
-    // }
+    //       {
+    //         id: 'node1-output-1',
+    //         type: NsGraph.AnchorType.OUTPUT,
+    //         group: NsGraph.AnchorGroup.BOTTOM,
+    //         tooltip: '输出桩',
+    //       },
+    //     ] as NsGraph.INodeAnchor[],
+    //   },
+    //   {
+    //     ...NODE_COMMON_PROPS,
+    //     id: 'node2',
+    //     label: '算法节点-2',
+    //     ports: [
+    //       {
+    //         id: 'node2-input-1',
+    //         type: NsGraph.AnchorType.INPUT,
+    //         group: NsGraph.AnchorGroup.TOP,
+    //         tooltip: '输入桩',
+    //         connected: true,
+    //       },
+    //       {
+    //         id: 'node2-output-1',
+    //         type: NsGraph.AnchorType.OUTPUT,
+    //         group: NsGraph.AnchorGroup.BOTTOM,
+    //         tooltip: '输出桩',
+    //       },
+    //     ] as NsGraph.INodeAnchor[],
+    //   },
+    //   {
+    //     ...NODE_COMMON_PROPS,
+    //     id: 'node3',
+    //     label: '算法节点-3',
+    //     ports: [
+    //       {
+    //         id: 'node3-input-1',
+    //         type: NsGraph.AnchorType.INPUT,
+    //         group: NsGraph.AnchorGroup.TOP,
+    //         tooltip: '输入桩',
+    //         connected: true,
+    //       },
+    //       {
+    //         id: 'node3-output-1',
+    //         type: NsGraph.AnchorType.OUTPUT,
+    //         group: NsGraph.AnchorGroup.BOTTOM,
+    //         tooltip: '输出桩',
+    //       },
+    //     ] as NsGraph.INodeAnchor[],
+    //   },
+    //   {
+    //     ...NODE_COMMON_PROPS,
+    //     id: 'node4',
+    //     label: '算法节点-4',
+    //     ports: [
+    //       {
+    //         id: 'node4-input-1',
+    //         type: NsGraph.AnchorType.INPUT,
+    //         group: NsGraph.AnchorGroup.TOP,
+    //         tooltip: '输入桩',
+    //         connected: true,
+    //       },
+    //       {
+    //         id: 'node4-output-1',
+    //         type: NsGraph.AnchorType.OUTPUT,
+    //         group: NsGraph.AnchorGroup.BOTTOM,
+    //         tooltip: '输出桩',
+    //       },
+    //     ] as NsGraph.INodeAnchor[],
+    //   },
+    // ];
+    // const edges: NsGraph.IEdgeConfig[] = [
+    //   {
+    //     id: uuidv4(),
+    //     source: 'node1',
+    //     target: 'node2',
+    //     sourcePortId: 'node1-output-1',
+    //     targetPortId: 'node2-input-1',
+    //   },
+    //   {
+    //     id: uuidv4(),
+    //     source: 'node1',
+    //     target: 'node3',
+    //     sourcePortId: 'node1-output-1',
+    //     targetPortId: 'node3-input-1',
+    //   },
+    //   {
+    //     id: uuidv4(),
+    //     source: 'node1',
+    //     target: 'node4',
+    //     sourcePortId: 'node1-output-1',
+    //     targetPortId: 'node4-input-1',
+    //   },
+    // ];
+    // return { nodes, edges };
+
+    return {
+      nodes: [
+        {
+          id: 'node1',
+          renderKey: 'DND_NDOE',
+          width: 180,
+          height: 36,
+          label: '算法节点-1',
+          ports: [
+            {
+              id: 'node1-input-1',
+              type: 'input',
+              group: 'top',
+              tooltip: '输入桩',
+            },
+            {
+              id: 'node1-output-1',
+              type: 'output',
+              group: 'bottom',
+              tooltip: '输出桩',
+            },
+          ],
+          x: 300,
+          y: 50,
+          _order: 0,
+          group: '2fd8bb17-b3b9-4753-870b-0764892cc027',
+          isCollapsed: false,
+        },
+        {
+          id: '2fd8bb17-b3b9-4753-870b-0764892cc027',
+          renderKey: 'GROUP_NODE_RENDER_ID',
+          width: 204,
+          height: 100,
+          groupChildren: ['node1'],
+          groupCollapsedSize: {
+            width: 200,
+            height: 40,
+          },
+          label: '新建群组',
+          ports: [],
+          groupChildrenSize: {
+            width: 204,
+            height: 100,
+          },
+          x: 288,
+          y: -2,
+          isGroup: true,
+        },
+        {
+          id: 'node2',
+          renderKey: 'DND_NDOE',
+          width: 180,
+          height: 36,
+          label: '算法节点-2',
+          ports: [
+            {
+              id: 'node2-input-1',
+              type: 'input',
+              group: 'top',
+              tooltip: '输入桩',
+              connected: true,
+            },
+            {
+              id: 'node2-output-1',
+              type: 'output',
+              group: 'bottom',
+              tooltip: '输出桩',
+            },
+          ],
+          x: 80,
+          y: 180,
+          _order: 0,
+        },
+        {
+          id: 'node3',
+          renderKey: 'DND_NDOE',
+          width: 180,
+          height: 36,
+          label: '算法节点-3',
+          ports: [
+            {
+              id: 'node3-input-1',
+              type: 'input',
+              group: 'top',
+              tooltip: '输入桩',
+              connected: true,
+            },
+            {
+              id: 'node3-output-1',
+              type: 'output',
+              group: 'bottom',
+              tooltip: '输出桩',
+            },
+          ],
+          x: 300,
+          y: 180,
+          _order: 1,
+        },
+        {
+          id: 'node4',
+          renderKey: 'DND_NDOE',
+          width: 180,
+          height: 36,
+          label: '算法节点-4',
+          ports: [
+            {
+              id: 'node4-input-1',
+              type: 'input',
+              group: 'top',
+              tooltip: '输入桩',
+              connected: true,
+            },
+            {
+              id: 'node4-output-1',
+              type: 'output',
+              group: 'bottom',
+              tooltip: '输出桩',
+            },
+          ],
+          x: 520,
+          y: 180,
+          _order: 2,
+        },
+      ],
+      edges: [
+        {
+          id: '4520d302-5b36-4f55-abdd-390947def70f',
+          source: 'node1',
+          target: 'node2',
+          sourcePortId: 'node1-output-1',
+          targetPortId: 'node2-input-1',
+          connector: {
+            name: 'rounded',
+          },
+          router: {
+            name: 'manhattan',
+          },
+          sourcePort: 'node1-output-1',
+          targetPort: 'node2-input-1',
+        },
+        {
+          id: 'f44dc92b-0e32-4a20-8b89-bec49836bcfa',
+          source: 'node1',
+          target: 'node3',
+          sourcePortId: 'node1-output-1',
+          targetPortId: 'node3-input-1',
+          connector: {
+            name: 'rounded',
+          },
+          router: {
+            name: 'manhattan',
+          },
+          sourcePort: 'node1-output-1',
+          targetPort: 'node3-input-1',
+        },
+        {
+          id: 'de1caa6c-b739-4392-bf77-806515a5a49f',
+          source: 'node1',
+          target: 'node4',
+          sourcePortId: 'node1-output-1',
+          targetPortId: 'node4-input-1',
+          connector: {
+            name: 'rounded',
+          },
+          router: {
+            name: 'manhattan',
+          },
+          sourcePort: 'node1-output-1',
+          targetPort: 'node4-input-1',
+        },
+      ],
+    };
   };
   /** 保存图数据的api */
   export const saveGraphData: NsGraphCmd.SaveGraphData.IArgs['saveGraphDataService'] = async (
