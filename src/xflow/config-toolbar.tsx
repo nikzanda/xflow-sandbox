@@ -75,32 +75,32 @@ export namespace NSToolbarConfig {
   }
 
   export const getToolbarItems = async (state: IToolbarState) => {
-    const toolbarGroup1: IToolbarItemOptions[] = []
+    // const toolbarGroup1: IToolbarItemOptions[] = []
     const toolbarGroup2: IToolbarItemOptions[] = []
-    const toolbarGroup3: IToolbarItemOptions[] = []
-    /** 保存数据 */
-    toolbarGroup1.push({
-      id: XFlowGraphCommands.SAVE_GRAPH_DATA.id,
-      iconName: 'SaveOutlined',
-      tooltip: '保存数据',
-      onClick: async ({ commandService }) => {
-        commandService.executeCommand<NsGraphCmd.SaveGraphData.IArgs>(
-          XFlowGraphCommands.SAVE_GRAPH_DATA.id,
-          { saveGraphDataService: (meta, graphData) => MockApi.saveGraphData(meta, graphData) },
-        )
-      },
-    })
-    /** 部署服务按钮 */
-    toolbarGroup1.push({
-      iconName: 'CloudSyncOutlined',
-      tooltip: '部署服务',
-      id: CustomCommands.DEPLOY_SERVICE.id,
-      onClick: ({ commandService }) => {
-        commandService.executeCommand<NsDeployDagCmd.IArgs>(CustomCommands.DEPLOY_SERVICE.id, {
-          deployDagService: (meta, graphData) => MockApi.deployDagService(meta, graphData),
-        })
-      },
-    })
+    // const toolbarGroup3: IToolbarItemOptions[] = []
+    // /** 保存数据 */
+    // toolbarGroup1.push({
+    //   id: XFlowGraphCommands.SAVE_GRAPH_DATA.id,
+    //   iconName: 'SaveOutlined',
+    //   tooltip: '保存数据',
+    //   onClick: async ({ commandService }) => {
+    //     commandService.executeCommand<NsGraphCmd.SaveGraphData.IArgs>(
+    //       XFlowGraphCommands.SAVE_GRAPH_DATA.id,
+    //       { saveGraphDataService: (meta, graphData) => MockApi.saveGraphData(meta, graphData) },
+    //     )
+    //   },
+    // })
+    // /** 部署服务按钮 */
+    // toolbarGroup1.push({
+    //   iconName: 'CloudSyncOutlined',
+    //   tooltip: '部署服务',
+    //   id: CustomCommands.DEPLOY_SERVICE.id,
+    //   onClick: ({ commandService }) => {
+    //     commandService.executeCommand<NsDeployDagCmd.IArgs>(CustomCommands.DEPLOY_SERVICE.id, {
+    //       deployDagService: (meta, graphData) => MockApi.deployDagService(meta, graphData),
+    //     })
+    //   },
+    // })
     /** 开启框选 */
     toolbarGroup2.push({
       id: XFlowGraphCommands.GRAPH_TOGGLE_MULTI_SELECT.id,
@@ -149,56 +149,56 @@ export namespace NSToolbarConfig {
       },
     })
 
-    toolbarGroup3.push({
-      id: XFlowDagCommands.QUERY_GRAPH_STATUS.id + 'play',
-      tooltip: '开始执行',
-      iconName: 'PlaySquareOutlined',
-      isEnabled: !state.isProcessing,
-      onClick: async ({ commandService }) => {
-        commandService.executeCommand<NsGraphStatusCommand.IArgs>(
-          XFlowDagCommands.QUERY_GRAPH_STATUS.id,
-          {
-            graphStatusService: MockApi.graphStatusService,
-            loopInterval: 3000,
-          },
-        )
-      },
-    })
-    toolbarGroup3.push({
-      id: XFlowDagCommands.QUERY_GRAPH_STATUS.id + 'stop',
-      tooltip: '停止执行',
-      iconName: 'StopOutlined',
-      isEnabled: state.isProcessing,
-      onClick: async ({ commandService }) => {
-        commandService.executeCommand<NsGraphStatusCommand.IArgs>(
-          XFlowDagCommands.QUERY_GRAPH_STATUS.id,
-          {
-            graphStatusService: MockApi.stopGraphStatusService,
-            loopInterval: 5000,
-          },
-        )
-      },
-      render: props => {
-        return (
-          <Popconfirm
-            title="确定停止执行？"
-            onConfirm={() => {
-              props.onClick()
-            }}
-          >
-            {props.children}
-          </Popconfirm>
-        )
-      },
-    })
+    // toolbarGroup3.push({
+    //   id: XFlowDagCommands.QUERY_GRAPH_STATUS.id + 'play',
+    //   tooltip: '开始执行',
+    //   iconName: 'PlaySquareOutlined',
+    //   isEnabled: !state.isProcessing,
+    //   onClick: async ({ commandService }) => {
+    //     commandService.executeCommand<NsGraphStatusCommand.IArgs>(
+    //       XFlowDagCommands.QUERY_GRAPH_STATUS.id,
+    //       {
+    //         graphStatusService: MockApi.graphStatusService,
+    //         loopInterval: 3000,
+    //       },
+    //     )
+    //   },
+    // })
+    // toolbarGroup3.push({
+    //   id: XFlowDagCommands.QUERY_GRAPH_STATUS.id + 'stop',
+    //   tooltip: '停止执行',
+    //   iconName: 'StopOutlined',
+    //   isEnabled: state.isProcessing,
+    //   onClick: async ({ commandService }) => {
+    //     commandService.executeCommand<NsGraphStatusCommand.IArgs>(
+    //       XFlowDagCommands.QUERY_GRAPH_STATUS.id,
+    //       {
+    //         graphStatusService: MockApi.stopGraphStatusService,
+    //         loopInterval: 5000,
+    //       },
+    //     )
+    //   },
+    //   render: props => {
+    //     return (
+    //       <Popconfirm
+    //         title="确定停止执行？"
+    //         onConfirm={() => {
+    //           props.onClick()
+    //         }}
+    //       >
+    //         {props.children}
+    //       </Popconfirm>
+    //     )
+    //   },
+    // })
 
     return [
-      { name: 'graphData', items: toolbarGroup1 },
+      // { name: 'graphData', items: toolbarGroup1 },
       { name: 'groupOperations', items: toolbarGroup2 },
-      {
-        name: 'customCmd',
-        items: toolbarGroup3,
-      },
+      // {
+      //   name: 'customCmd',
+      //   items: toolbarGroup3,
+      // },
     ]
   }
 }
